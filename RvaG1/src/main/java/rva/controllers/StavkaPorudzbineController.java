@@ -22,7 +22,7 @@ import rva.services.PorudzbinaService;
 import rva.services.StavkaPorudzbineService;
 
 @RestController
-public class StavkaPorudzbinaController {
+public class StavkaPorudzbineController {
 
 	@Autowired
 	private StavkaPorudzbineService service;
