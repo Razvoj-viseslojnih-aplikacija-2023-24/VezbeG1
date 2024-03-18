@@ -3,6 +3,9 @@ package rva.models;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,18 +20,18 @@ public class Dobavljac implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator(name = "DOBAVLJAC_SEQ_GENERATOR", sequenceName = "DOBAVLJAC_SEQ",
-	allocationSize = 1)
+	@SequenceGenerator(name = "DOBAVLJAC_SEQ_GENERATOR", sequenceName = "DOBAVLJAC_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DOBAVLJAC_SEQ_GENERATOR")
 	private int id;
-	
+
 	private String naziv;
 	private String adresa;
 	private String kontakt;
-	
-	@OneToMany(mappedBy = "dobavljac")
+
+	@OneToMany(mappedBy = "dobavljac", cascade = CascadeType.REMOVE)
+	@JsonIgnore
 	private List<Porudzbina> porudzbine;
 
 	public Dobavljac() {
@@ -72,6 +75,14 @@ public class Dobavljac implements Serializable {
 
 	public void setKontakt(String kontakt) {
 		this.kontakt = kontakt;
+	}
+
+	public List<Porudzbina> getPorudzbine() {
+		return porudzbine;
+	}
+
+	public void setPorudzbine(List<Porudzbina> porudzbine) {
+		this.porudzbine = porudzbine;
 	}
 
 }

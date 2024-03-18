@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import rva.models.Artikl;
 import rva.models.Dobavljac;
 import rva.repository.DobavljacRepository;
 import rva.services.DobavljacService;
@@ -24,6 +25,11 @@ public class DobavljacServiceImpl implements DobavljacService {
 	@Override
 	public boolean existsById(int id) {
 		return repo.existsById(id);
+	}
+	
+	@Override
+	public Optional<Dobavljac> findById(int id){
+		return repo.findById(id);
 	}
 
 	@Override

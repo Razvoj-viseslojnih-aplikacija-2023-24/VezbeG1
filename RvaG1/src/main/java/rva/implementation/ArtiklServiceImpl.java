@@ -25,6 +25,11 @@ public class ArtiklServiceImpl implements ArtiklService {
 	public boolean existsById(int id) {
 		return repo.existsById(id);
 	}
+	
+	@Override
+	public Optional<Artikl> findById(int id){
+		return repo.findById(id);
+	}
 
 	@Override
 	public Artikl create(Artikl t) {

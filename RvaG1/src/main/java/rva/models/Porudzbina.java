@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,20 +23,20 @@ public class Porudzbina implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@SequenceGenerator(name = "PORUDZBINA_SEQ_GENERATOR", sequenceName = "PORUDZBINA_SEQ",
-	allocationSize = 1)
+	@SequenceGenerator(name = "PORUDZBINA_SEQ_GENERATOR", sequenceName = "PORUDZBINA_SEQ", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PORUDZBINA_SEQ_GENERATOR")
 	private int id;
 	private Date datum;
 	private Date isporuceno;
 	private double iznos;
 	private boolean placeno;
-	
-	@OneToMany(mappedBy = "porudzbina")
+
+	@OneToMany(mappedBy = "porudzbina", cascade = CascadeType.REMOVE)
+	@JsonIgnore
 	private List<StavkaPorudzbine> stavke;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "dobavljac")
 	private Dobavljac dobavljac;
@@ -88,6 +91,22 @@ public class Porudzbina implements Serializable {
 
 	public void setPlaceno(boolean placeno) {
 		this.placeno = placeno;
+	}
+
+	public List<StavkaPorudzbine> getStavke() {
+		return stavke;
+	}
+
+	public void setStavke(List<StavkaPorudzbine> stavke) {
+		this.stavke = stavke;
+	}
+
+	public Dobavljac getDobavljac() {
+		return dobavljac;
+	}
+
+	public void setDobavljac(Dobavljac dobavljac) {
+		this.dobavljac = dobavljac;
 	}
 
 }
