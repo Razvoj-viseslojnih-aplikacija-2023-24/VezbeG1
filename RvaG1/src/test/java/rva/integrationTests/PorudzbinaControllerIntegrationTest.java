@@ -95,7 +95,7 @@ class PorudzbinaControllerIntegrationTest {
 
 	@Test
 	@Order(4)
-	void testGetPorudzbineByPorudzbina() {
+	void testGetPorudzbineByDobavljac() {
 		long dobavljacId = 1;
 		ResponseEntity<List<Porudzbina>> response = template.exchange("/porudzbina/dobavljac/" + dobavljacId, HttpMethod.GET, null,
 				new ParameterizedTypeReference<List<Porudzbina>>(){});

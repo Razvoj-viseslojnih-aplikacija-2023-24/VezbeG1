@@ -77,9 +77,9 @@ class DobavljacControllerIntegrationTest {
 
 	@Test
 	@Order(3)
-	void testGetDobavljacsByNaziv() {
-		String naziv = "AD";
-		ResponseEntity<List<Dobavljac>> response = template.exchange("/dobavljac/naziv/" + naziv, HttpMethod.GET, null,
+	void testGetDobavljacsByAdresa() {
+		String adresa = "AD";
+		ResponseEntity<List<Dobavljac>> response = template.exchange("/dobavljac/adresa/" + adresa, HttpMethod.GET, null,
 				new ParameterizedTypeReference<List<Dobavljac>>(){});
 		int statusCode = response.getStatusCode().value();
 		List<Dobavljac> dobavljacs =  response.getBody();
@@ -87,7 +87,7 @@ class DobavljacControllerIntegrationTest {
 		
 		assertEquals(200, statusCode );
 		assertNotNull(dobavljacs.get(0));
-		assertTrue(nazivDobavljaca.startsWith(naziv));	
+		assertTrue(nazivDobavljaca.startsWith(adresa));	
 	}
 
 	@Test
