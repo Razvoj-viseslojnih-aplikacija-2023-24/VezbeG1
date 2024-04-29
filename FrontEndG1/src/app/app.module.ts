@@ -19,6 +19,15 @@ import { AboutComponent } from './components/utility/about/about.component';
 import { AuthorComponent } from './components/utility/author/author.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import {MatTableModule} from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { ArtiklDialogComponent } from './components/dialogs/artikl-dialog/artikl-dialog.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     StavkaPorudzbineComponent,
     HomeComponent,
     AboutComponent,
-    AuthorComponent
+    AuthorComponent,
+    ArtiklDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +50,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatExpansionModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
