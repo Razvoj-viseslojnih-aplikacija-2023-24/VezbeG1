@@ -1,0 +1,46 @@
+<div class="container">
+  <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje stavke porudzbine</h3>
+  <h3 mat-dialog-title *ngIf="flag == 2">Ažuriranje stavke porudzbine: {{data.id}}</h3>
+  <h3 mat-dialog-title *ngIf="flag == 3">Brisanje stavke porudzbine: {{data.id}}</h3>
+
+  <form class="mat-dialog-content" #formControl="ngForm">
+     <div class="form">
+      <mat-form-field class="form-field">
+          <input matInput placeholder="Redni broj" name="Redni broj" [disabled]="flag==3" [(ngModel)]="data.redniBroj" required />
+      </mat-form-field>
+     </div>
+
+     <div class="form">
+      <mat-form-field class="form-field">
+          <input matInput placeholder="Kolicina" name="Kolicina" [disabled]="flag==3" [(ngModel)]="data.kolicina" required />
+      </mat-form-field>
+     </div>
+
+     <div class="form">
+      <mat-form-field class="form-field">
+          <input matInput placeholder="Jedinica mere" name="Jedinica mere" [disabled]="flag==3" [(ngModel)]="data.jedinicaMere" required />
+      </mat-form-field>
+     </div>
+
+     <div class="form">
+      <mat-form-field class="form-field">
+          <input matInput placeholder="Cena" name="Cena" [disabled]="flag==3" [(ngModel)]="data.cena" required />
+      </mat-form-field>
+     </div>
+
+      <div class="form">
+          <mat-select [compareWith]="compare" class="form-field" placeholder="Artikl" name="Artikl" [disabled]="flag==3" [(ngModel)]="data.artikl" required>
+              <mat-option *ngFor="let artikl of artikli" [value]="artikl">
+                  {{artikl.naziv}}
+              </mat-option>
+          </mat-select>
+      </div>
+  </form>
+
+  <div class="form-field mat-dialog-actions">
+      <button mat-raised-button color="accent" *ngIf="flag == 1" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="add()">Sačuvaj</button>
+      <button mat-raised-button color="accent" *ngIf="flag == 2" type="submit" mat-dialog-close="1" [disabled]="!formControl.valid" (click)="update()">Modifikuj</button>
+      <button mat-raised-button color="accent" *ngIf="flag == 3" mat-dialog-close="1" (click)="delete()">Obriši</button>
+      <button mat-raised-button color="warn" (click)="cancel()">Poništi</button>
+  </div>
+</div>

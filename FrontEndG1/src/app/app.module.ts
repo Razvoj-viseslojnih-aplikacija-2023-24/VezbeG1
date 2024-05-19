@@ -33,6 +33,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { DobavljacDialogComponent } from './components/dialogs/dobavljac-dialog/dobavljac-dialog.component';
+import { StavkaPorudzbineDialogComponent } from './components/dialogs/stavka-porudzbine-dialog/stavka-porudzbine-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AboutComponent,
     AuthorComponent,
     ArtiklDialogComponent,
-    PorudzbinaDialogComponent
+    PorudzbinaDialogComponent,
+    DobavljacDialogComponent,
+    StavkaPorudzbineDialogComponent
   ],
   imports: [
     BrowserModule,

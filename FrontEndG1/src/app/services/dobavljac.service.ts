@@ -15,7 +15,7 @@ export class DobavljacService {
     return this.httpClient.get(`${DOBAVLJAC_URL}`);
   }
 
-  public createDobavljac(dobavljac:Dobavljac):Observable<any>{
+  public addDobavljac(dobavljac:Dobavljac):Observable<any>{
     return this.httpClient.post(`${DOBAVLJAC_URL}`, dobavljac);
   }
 
