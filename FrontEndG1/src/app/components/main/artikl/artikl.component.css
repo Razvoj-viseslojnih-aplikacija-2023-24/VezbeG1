@@ -30,3 +30,16 @@ mat-header-cell:nth-child(4){
 .title-center {
   margin: 0 auto;
 }
+
+.filter-field{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter-field mat-form-field{
+  margin: 20px 30px 0 0;
+}
+
+mat-paginator{
+  margin-top: 24px;
+}

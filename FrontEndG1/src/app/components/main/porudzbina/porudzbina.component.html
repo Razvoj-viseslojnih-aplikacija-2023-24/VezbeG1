@@ -53,8 +53,16 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row
         style="cursor: pointer;"
-        *matRowDef="let row; columns: displayedColumns">
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="selectRow(row)">
       </mat-row>
     </mat-table>
+  </div>
+
+  <div class="container mat-elavation-z8">
+    <app-stavka-porudzbine *ngIf="parentSelectedPorudzbina" 
+    [childSelectedPorudzbina]="parentSelectedPorudzbina">
+
+    </app-stavka-porudzbine>
   </div>
 
