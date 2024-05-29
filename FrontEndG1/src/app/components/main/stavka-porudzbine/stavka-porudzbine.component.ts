@@ -50,6 +50,7 @@ export class StavkaPorudzbineComponent implements OnChanges {
   public openDialog(flag:number, id?:number, redniBroj?:number, kolicina?:number, jedinicaMere?:string, cena?:number, artikl?:Artikl ):void{
     const dialogRef = this.dialog.open(StavkaPorudzbineDialogComponent, {data:{id,redniBroj,kolicina,jedinicaMere,cena,artikl}});
     dialogRef.componentInstance.flag = flag;
+    dialogRef.componentInstance.data.porudzbina = this.childSelectedPorudzbina;
     dialogRef.afterClosed().subscribe(
       result =>{
         if(result == 1){
